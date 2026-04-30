@@ -1,0 +1,22 @@
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        map<char,int> mp;
+        if(s.size()!=t.size()) return false;
+        for(int i=0;i<s.size();i++)
+        {
+            mp[s[i]]++;
+        }
+        for(int i=0;i<t.size();i++)
+        {
+           // cout<<t[i]<<" ";
+            if(mp.find(t[i])!=mp.end() && mp[t[i]]>0)
+            {
+              mp[t[i]]--;
+              cout<<t[i]<<" "<<mp[t[i]]<<endl;
+            }
+            else return false;
+        }
+        return true;
+    }
+};
